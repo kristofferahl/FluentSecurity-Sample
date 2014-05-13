@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Domain\AggregateRoot.cs" />
     <Compile Include="Domain\Issue.cs" />
+    <Compile Include="Services\IAuthenticator.cs" />
     <Compile Include="Services\IUserSession.cs" />
     <Compile Include="Domain\Persistence\DomainRepository.cs" />
     <Compile Include="Domain\Persistence\IDomainRepository.cs" />

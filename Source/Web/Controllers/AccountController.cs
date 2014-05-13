@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.Security;
+using Core.Services;
 using Web.Models;
 
 namespace Web.Controllers
 {
 	public class AccountController : Controller
 	{
+		private readonly IAuthenticator _authenticator;
+
+		public AccountController(IAuthenticator authenticator)
+		{
+			_authenticator = authenticator;
+		}
+
 		public ActionResult LogOn()
 		{
 			return View();
@@ -17,7 +25,7 @@ namespace Web.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				if (Membership.ValidateUser(model.UserName, model.Password))
+				if (_authenticator.ValidateCredentials(model.UserName, model.Password))
 				{
 					FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 					if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/") && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))

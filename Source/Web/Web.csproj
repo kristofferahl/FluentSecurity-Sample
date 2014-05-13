@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="App\ServiceLocation\StructureMapDependencyResolver.cs" />
     <Compile Include="App\ServiceLocation\WebRegistry.cs" />
+    <Compile Include="App\Services\Authenticator.cs" />
     <Compile Include="App_Start\IoCConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
