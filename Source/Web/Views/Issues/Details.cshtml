@@ -1,0 +1,23 @@
+﻿@model Core.Domain.Issue
+@{
+	ViewBag.Title = "Issue -> " + Model.Subject;
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+	<dl>
+		<dt>Id</dt>
+		<dd>@Model.Id</dd>
+
+		<dt>Submitted</dt>
+		<dd>@Model.Submitted</dd>
+
+		<dt>User</dt>
+		<dd>@Model.User</dd>
+
+		<dt>Open</dt>
+		<dd>@Model.Open</dd>
+		
+		<dt>Issue</dt>
+		<dd>@Model.Text</dd>
+	</dl>
+</section>

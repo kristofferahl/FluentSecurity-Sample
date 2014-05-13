@@ -1,0 +1,37 @@
+﻿@model Web.Models.LogOnModel
+@{
+	ViewBag.Title = "Log On";
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	<p>
+		Please enter your user name and password. @Html.ActionLink("Register", "Register") if you don't have an account.
+	</p>
+
+	@Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+
+	@using (Html.BeginForm())
+	{
+		<fieldset>
+			<legend>Account Information</legend>
+			<p>
+				@Html.LabelFor(m => m.UserName)
+				@Html.TextBoxFor(m => m.UserName)
+				@Html.ValidationMessageFor(m => m.UserName)
+			</p>
+			<p>
+				@Html.LabelFor(m => m.Password)
+				@Html.PasswordFor(m => m.Password)
+				@Html.ValidationMessageFor(m => m.Password)
+			</p>
+			<p>
+				@Html.CheckBoxFor(m => m.RememberMe)
+				@Html.LabelFor(m => m.RememberMe)
+			</p>
+			<p>
+				<button type="submit" class="primary">Log On</button>
+			</p>
+		</fieldset>
+	}
+</section>

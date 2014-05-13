@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Web.Models.UserListModel>
+@{
+	ViewBag.Title = "Users";
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	<table>
+		<caption>All users</caption>
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Roles</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var user in Model)
+			{<tr>
+				<td>@user.UserName</td>
+				<td>@user.Email</td>
+				<td>
+					@if (user.Roles.Any())
+					{
+						<ul>
+							@foreach (var role in user.Roles) {<li>
+								@role
+							</li>}
+						</ul>
+					}
+				</td>
+				<td>@Html.ActionLink("Update roles", "UpdateRoles", "Users", new { id = user.UserName }, null)</td>
+			</tr>}
+		</tbody>
+	</table>
+</section>

@@ -1,0 +1,27 @@
+﻿@model Web.Models.IssueEditModel
+@{
+	ViewBag.Title = "Submit issue";
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	@using (Html.BeginForm())
+	{
+		<fieldset>
+			<legend>Issue</legend>
+			<p>
+				@Html.LabelFor(m => m.Subject)
+				@Html.TextBoxFor(m => m.Subject)
+				@Html.ValidationMessageFor(m => m.Subject)
+			</p>
+			<p>
+				@Html.LabelFor(m => m.Text)
+				@Html.TextAreaFor(m => m.Text, 10, 40, null)
+				@Html.ValidationMessageFor(m => m.Text)
+			</p>
+			<p>
+				<button type="submit" class="success">Submit issue</button>
+			</p>
+		</fieldset>
+	}
+</section>

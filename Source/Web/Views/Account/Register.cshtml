@@ -1,0 +1,42 @@
+﻿@model Web.Models.RegisterModel
+@{
+	ViewBag.Title = "Register";
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	<p>Use the form below to create a new account.</p>
+	<p>Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.</p>
+
+	@Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
+
+	@using (Html.BeginForm())
+	{	
+		<fieldset>
+			<legend>Account information</legend>
+			<p>
+				@Html.LabelFor(m => m.UserName)
+				@Html.TextBoxFor(m => m.UserName)
+				@Html.ValidationMessageFor(m => m.UserName)
+			</p>
+			<p>
+				@Html.LabelFor(m => m.Email)
+				@Html.TextBoxFor(m => m.Email)
+				@Html.ValidationMessageFor(m => m.Email)
+			</p>
+			<p>
+				@Html.LabelFor(m => m.Password)
+				@Html.PasswordFor(m => m.Password)
+				@Html.ValidationMessageFor(m => m.Password)
+			</p>
+			<p>
+				@Html.LabelFor(m => m.ConfirmPassword)
+				@Html.PasswordFor(m => m.ConfirmPassword)
+				@Html.ValidationMessageFor(m => m.ConfirmPassword)
+			</p>
+			<p>
+				<button type="submit" class="success">Register</button>
+			</p>
+		</fieldset>
+	}
+</section>

@@ -1,0 +1,14 @@
+﻿@model dynamic
+@{
+	ViewBag.Title = Model.Title;
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	<p class="alert error">
+		@Model.Message
+	</p>
+	@if (Model.AuthenticationAllowed) {<p>
+		@Html.ActionLink("Please log on using your user name and password.", "LogOn", "Account")
+	</p>}
+</section>

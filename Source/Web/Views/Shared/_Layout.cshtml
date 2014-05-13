@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>@ViewBag.Title</title>
+		<link href="@Url.Content("~/styles/app.css")" rel="stylesheet" type="text/css" media="all" />
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<div class="wrapper">
+			<h1><a href="/">BigCompany</a></h1>
+
+			@Html.Navigation(() => new List<MvcHtmlString> {
+				@Html.NavigationLink<HomeController>(x => x.Index(), "Home", "li"),
+				@Html.NavigationLink<AccountController>(x => x.Register(), "Register", "li"),
+				@Html.NavigationLink<IssuesController>(x => x.Index(), "Issues", "li", markSelectedWhenExactMatchOnly: true),
+				@Html.NavigationLink<IssuesController>(x => x.Create(), "Submit issue", "li"),
+				@Html.NavigationLink<UsersController>(x => x.Index(), "Users", "li")
+			}, new { id = "nav" })
+
+			@Html.Partial("_LogOnPartial")
+			</div>
+		</header>
+		<div class="wrapper">
+			@RenderBody()
+
+			<footer>
+				<p>Powered by <a href="http://fluentsecurity.net/">FluentSecurity</a></p>
+			</footer>
+		</div>
+		<script src="@Url.Content("~/scripts/jquery-2.1.0.min.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/scripts/jquery.validate.min.js")" type="text/javascript"></script>
+		<script src="@Url.Content("~/scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+	</body>
+</html>

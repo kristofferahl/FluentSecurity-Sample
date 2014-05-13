@@ -1,0 +1,31 @@
+﻿@model Web.Models.UserRolesEditModel
+@{
+	ViewBag.Title = String.Format("Update roles for {0}", Model.UserName);
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	@using (Html.BeginForm())
+	{
+		<fieldset>
+			<legend>Roles</legend>
+			<p>
+				@Html.CheckBoxFor(m => m.Administrator)
+				@Html.LabelFor(m => m.Administrator)
+			</p>
+			<p>
+				@Html.CheckBoxFor(m => m.Employee)
+				@Html.LabelFor(m => m.Employee)
+
+			</p>
+			<p>
+				@Html.CheckBoxFor(m => m.Member)
+				@Html.LabelFor(m => m.Member)
+			</p>
+			<p>
+				@Html.HiddenFor(m => m.UserName)
+				<button type="submit" class="warning">Update</button>
+			</p>
+		</fieldset>
+	}
+</section>

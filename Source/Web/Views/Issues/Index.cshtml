@@ -1,0 +1,44 @@
+﻿@using Web.App.Security
+@model IEnumerable<Core.Domain.Issue>
+@{
+	ViewBag.Title = "Issues";
+	var grid = new WebGrid(Model, canSort: false, canPage: false);
+}
+@helper ViewLink(string text, Guid id)
+{
+	<a href="Issues/Details/@id.ToString()">@text</a>
+}
+@helper CloseForm(Guid id)
+{
+	if (SecurityHelper.ActionIsAllowed<IssuesController>(x => x.Close(Guid.Empty))) {
+	<form action="@Url.Action("Close", "Issues")" method="POST">
+		<input type="hidden" name="Id" value="@id.ToString()" />
+		<button type="submit" class="warning" title="Close issue">Close</button>
+	</form>}
+}
+@helper DeleteForm(Guid id)
+{
+	if (SecurityHelper.ActionIsAllowed<IssuesController>(x => x.Delete(Guid.Empty))) {
+	<form action="@Url.Action("Delete", "Issues")" method="POST">
+		<input type="hidden" name="Id" value="@id.ToString()" />
+		<button type="submit" class="danger" title="Delete issue">Delete</button>
+	</form>}
+}
+<section>
+	<h2>@ViewBag.Title</h2>
+
+	@grid.GetHtml(
+			caption: "All issues",
+			rowStyle: "odd",
+			alternatingRowStyle: "even",
+			columns: grid.Columns(
+				grid.Column("Id"),
+				grid.Column("Subject", format: (item) => ViewLink(item.Subject, item.Id)),
+				grid.Column("Submitted"),
+				grid.Column("User"),
+				grid.Column("Open"),
+				grid.Column(header: "Close issue", format: (item) => CloseForm(item.Id)),
+				grid.Column(header: "Delete issue", format: (item) => DeleteForm(item.Id))
+			)
+		)
+</section>

@@ -1,0 +1,29 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+<section>
+	<h2>@ViewBag.Message</h2>
+
+	<h3>Your feedback is very valuable to us!</h3>
+	@if (User.Identity.IsAuthenticated == false)
+	{
+		<p>
+			To submit an issue or see the status of your issue, log in with your username and password.<br />
+			If you don't have an account yet you need to register before you can submit your issues.
+		</p>
+		<p class="alert warning">
+			The password for all users in this <strong>demo application</strong> is <strong>pass123</strong>.
+		</p>
+		<p class="alert info">
+			Please note that this is a demo application and the code should not be considered best practices.<br />
+			This application is built to illustrate how FluentSecurity works and how it integrates with ASP.NET MVC.
+		</p>
+	}
+	else
+	{
+		<p>
+			Thank you for letting us know how we can improve our services. Any issues you submit will be processed as quickly as possible but please be patient with us.<br />
+			Kind regards / BigCompany
+		</p>
+	}
+</section>
