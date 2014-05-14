@@ -1,3 +1,4 @@
 Source/Web/App_Data/
 Source/packages/
 *.DotSettings
+step.ps1
