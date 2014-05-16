@@ -134,6 +134,7 @@
     <Compile Include="App\Security\SecurityHelper.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="App\Security\ViolationHandlers\DefaultPolicyViolationHandler.cs" />
     <Compile Include="App\ServiceLocation\StructureMapDependencyResolver.cs" />
     <Compile Include="App\ServiceLocation\WebRegistry.cs" />
     <Compile Include="App\Services\Authenticator.cs" />

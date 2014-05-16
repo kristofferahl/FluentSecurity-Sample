@@ -6,6 +6,7 @@ using System.Web.Security;
 using FluentSecurity;
 using FluentSecurity.Configuration;
 using Web.App.Security;
+using Web.App.Security.ViolationHandlers;
 using Web.App_Start;
 using Web.Controllers;
 using Web.Models;
@@ -49,6 +50,8 @@ namespace Web
 				configuration.For<UsersController>().RequireAnyRole(UserRoles.Administrator);
 
 				configuration.For<SetupController>().AddPolicy(new LocalAccessPolicy());
+
+				configuration.DefaultPolicyViolationHandlerIs(() => new DefaultPolicyViolationHandler());
 			});
 
 			GlobalFilters.Filters.Add(new HandleSecurityAttribute(), -1);
