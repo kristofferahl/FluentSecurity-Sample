@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentSecurity.Core">
+      <HintPath>..\packages\FluentSecurity.Core.2.1.0-buildx9cb71\lib\net40\FluentSecurity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentSecurity.Mvc">
+      <HintPath>..\packages\FluentSecurity.Mvc.2.1.0-buildx9cb71\lib\net40\FluentSecurity.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="SisoDb">
       <HintPath>..\packages\SisoDb.16.2.1\lib\net40\SisoDb.dll</HintPath>
