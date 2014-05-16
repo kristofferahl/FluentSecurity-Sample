@@ -148,6 +148,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="App\Security\LocalAccessPolicy.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\IssueEditModel.cs" />
     <Compile Include="Models\UserListModel.cs" />

@@ -5,6 +5,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using FluentSecurity;
 using FluentSecurity.Configuration;
+using Web.App.Security;
 using Web.App_Start;
 using Web.Controllers;
 using Web.Models;
@@ -46,6 +47,8 @@ namespace Web
 				configuration.For<IssuesController>(x => x.Close(Guid.Empty)).RequireAnyRole(UserRoles.Employee, UserRoles.Administrator);
 
 				configuration.For<UsersController>().RequireAnyRole(UserRoles.Administrator);
+
+				configuration.For<SetupController>().AddPolicy(new LocalAccessPolicy());
 			});
 
 			GlobalFilters.Filters.Add(new HandleSecurityAttribute(), -1);
