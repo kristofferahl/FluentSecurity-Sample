@@ -5,6 +5,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using FluentSecurity;
 using FluentSecurity.Configuration;
+using FluentSecurity.Policy;
 using Web.App.Security;
 using Web.App.Security.ViolationHandlers;
 using Web.App_Start;
@@ -52,6 +53,13 @@ namespace Web
 				configuration.For<SetupController>().AddPolicy(new LocalAccessPolicy());
 
 				configuration.DefaultPolicyViolationHandlerIs(() => new DefaultPolicyViolationHandler());
+
+				configuration.Advanced.Violations(violations =>
+				{
+					violations.Of<DenyAnonymousAccessPolicy>().IsHandledBy(() => new DenyAnonymousAccessPolicyViolationHandler());
+					violations.Of<DenyAuthenticatedAccessPolicy>().IsHandledBy(() => new DenyAuthenticatedAccessPolicyViolationHandler());
+					violations.Of<RequireAnyRolePolicy>().IsHandledBy(() => new RequireAnyRolePolicyViolationHandler());
+				});
 			});
 
 			GlobalFilters.Filters.Add(new HandleSecurityAttribute(), -1);
