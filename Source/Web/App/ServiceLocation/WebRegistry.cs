@@ -1,8 +1,9 @@
 ﻿using Core.Domain.Persistence;
+using FluentSecurity;
 using SisoDb;
 using SisoDb.Sql2008;
 using StructureMap.Configuration.DSL;
-using Web.App.Security.ViolationHandlers;
+using StructureMap.Graph;
 
 namespace Web.App.ServiceLocation
 {
@@ -23,10 +24,11 @@ namespace Web.App.ServiceLocation
 				scan.WithDefaultConventions();
 			});
 
-			For<DefaultPolicyViolationHandler>().Use<DefaultPolicyViolationHandler>();
-			For<DenyAnonymousAccessPolicyViolationHandler>().Use<DenyAnonymousAccessPolicyViolationHandler>();
-			For<DenyAuthenticatedAccessPolicyViolationHandler>().Use<DenyAuthenticatedAccessPolicyViolationHandler>();
-			For<RequireAnyRolePolicyViolationHandler>().Use<RequireAnyRolePolicyViolationHandler>();
+			Scan(scan =>
+			{
+				scan.TheCallingAssembly();
+				scan.AddAllTypesOf<IPolicyViolationHandler>();
+			});
 		}
 	}
 }

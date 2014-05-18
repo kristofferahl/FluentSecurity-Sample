@@ -54,15 +54,6 @@ namespace Web
 				configuration.For<UsersController>().RequireAnyRole(UserRoles.Administrator);
 
 				configuration.For<SetupController>().AddPolicy<LocalAccessPolicy>();
-
-				configuration.DefaultPolicyViolationHandlerIs<DefaultPolicyViolationHandler>();
-
-				configuration.Advanced.Violations(violations =>
-				{
-					violations.Of<DenyAnonymousAccessPolicy>().IsHandledBy<DenyAnonymousAccessPolicyViolationHandler>();
-					violations.Of<DenyAuthenticatedAccessPolicy>().IsHandledBy<DenyAuthenticatedAccessPolicyViolationHandler>();
-					violations.Of<RequireAnyRolePolicy>().IsHandledBy<RequireAnyRolePolicyViolationHandler>();
-				});
 			});
 
 			GlobalFilters.Filters.Add(new HandleSecurityAttribute(), -1);
