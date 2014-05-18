@@ -6,6 +6,7 @@ using NUnit.Framework;
 using Web;
 using Web.App.Security;
 using Web.Controllers;
+using FluentSecurity.Core;
 
 namespace Specifications
 {
@@ -43,6 +44,16 @@ namespace Specifications
 
 			// Assert
 			Assert.That(results.Valid(), results.ErrorMessages());
+		}
+
+		[Test]
+		public void All_actions_should_be_configured()
+		{
+			// Arrange
+			var configuration = SecurityConfig.ConfigureSecurity();
+
+			// Act & assert
+			configuration.AssertAllActionsAreConfigured();
 		}
 	}
 }
