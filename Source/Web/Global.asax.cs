@@ -27,6 +27,9 @@ namespace Web
 
 			SecurityConfigurator.Configure<MvcConfiguration>(configuration =>
 			{
+				// Tell FluentSecurity how to resolve services
+				configuration.ResolveServicesUsing(DependencyResolver.Current.GetServices);
+
 				// Let FluentSecurity know how to get the authentication status of the current user
 				configuration.GetAuthenticationStatusFrom(() => HttpContext.Current.User.Identity.IsAuthenticated);
 
@@ -50,15 +53,15 @@ namespace Web
 
 				configuration.For<UsersController>().RequireAnyRole(UserRoles.Administrator);
 
-				configuration.For<SetupController>().AddPolicy(new LocalAccessPolicy());
+				configuration.For<SetupController>().AddPolicy<LocalAccessPolicy>();
 
-				configuration.DefaultPolicyViolationHandlerIs(() => new DefaultPolicyViolationHandler());
+				configuration.DefaultPolicyViolationHandlerIs<DefaultPolicyViolationHandler>();
 
 				configuration.Advanced.Violations(violations =>
 				{
-					violations.Of<DenyAnonymousAccessPolicy>().IsHandledBy(() => new DenyAnonymousAccessPolicyViolationHandler());
-					violations.Of<DenyAuthenticatedAccessPolicy>().IsHandledBy(() => new DenyAuthenticatedAccessPolicyViolationHandler());
-					violations.Of<RequireAnyRolePolicy>().IsHandledBy(() => new RequireAnyRolePolicyViolationHandler());
+					violations.Of<DenyAnonymousAccessPolicy>().IsHandledBy<DenyAnonymousAccessPolicyViolationHandler>();
+					violations.Of<DenyAuthenticatedAccessPolicy>().IsHandledBy<DenyAuthenticatedAccessPolicyViolationHandler>();
+					violations.Of<RequireAnyRolePolicy>().IsHandledBy<RequireAnyRolePolicyViolationHandler>();
 				});
 			});
 
