@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -44,6 +45,8 @@ namespace Web
 
 				configuration.For<SetupController>().AddPolicy<LocalAccessPolicy>();
 			});
+
+			Debug.Write(config.WhatDoIHave());
 
 			return config;
 		}
