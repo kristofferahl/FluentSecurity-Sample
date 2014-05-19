@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Api.App.Filters;
+using FluentSecurity.WebApi;
 
 namespace Api
 {
@@ -9,6 +10,7 @@ namespace Api
 		{
 			// Web API configuration and services
 			config.Filters.Add(new BasicAuthenticationAttribute());
+			config.Filters.Add(new HandleSecurityAttribute());
 			config.Filters.Add(new ApiValidationActionFilter());
 
 			// Web API routes

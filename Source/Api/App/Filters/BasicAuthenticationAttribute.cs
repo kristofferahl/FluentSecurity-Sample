@@ -33,11 +33,9 @@ namespace Api.App.Filters
 						var identity = new GenericIdentity("api");
 						SetPrincipal(new GenericPrincipal(identity, null));
 						base.OnAuthorization(actionContext);
-						return;
 					}
 				}
 			}
-			actionContext.Response = new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
 		}
 
 		private static void SetPrincipal(IPrincipal principal)

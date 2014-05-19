@@ -118,6 +118,7 @@
     <Compile Include="App\Services\UserSession.cs" />
     <Compile Include="App\Services\Authenticator.cs" />
     <Compile Include="App_Start\IoCConfig.cs" />
+    <Compile Include="App_Start\SecurityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Global.asax.cs">
