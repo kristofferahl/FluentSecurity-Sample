@@ -112,6 +112,7 @@
     <Compile Include="App\Filters\BasicAuthenticationAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="App\Security\ViolationHandlers\DefaultPolicyViolationHandler.cs" />
     <Compile Include="App\ServiceLocation\ApiRegistry.cs" />
     <Compile Include="App\ServiceLocation\StructureMapDependencyResolver.cs" />
     <Compile Include="App\ServiceLocation\StructureMapDependencyScope.cs" />
