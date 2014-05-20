@@ -139,6 +139,8 @@
     <Compile Include="App\Security\ViolationHandlers\DenyAnonymousAccessPolicyViolationHandler.cs" />
     <Compile Include="App\Security\ViolationHandlers\DenyAuthenticatedAccessPolicyViolationHandler.cs" />
     <Compile Include="App\Security\ViolationHandlers\RequireAnyRolePolicyViolationHandler.cs" />
+    <Compile Include="App\Services\DebugLogger.cs" />
+    <Compile Include="App\Services\ILogger.cs" />
     <Compile Include="App\ServiceLocation\StructureMapDependencyResolver.cs" />
     <Compile Include="App\ServiceLocation\WebRegistry.cs" />
     <Compile Include="App\Services\Authenticator.cs" />
