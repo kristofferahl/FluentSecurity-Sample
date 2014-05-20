@@ -4,6 +4,7 @@ using SisoDb;
 using SisoDb.Sql2008;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
+using Web.App.Services;
 
 namespace Web.App.ServiceLocation
 {
@@ -16,6 +17,8 @@ namespace Web.App.ServiceLocation
 			instance.CreateIfNotExists();
 
 			For<ISisoDatabase>().Singleton().Use(instance);
+
+			For<ILogger>().Use<DebugLogger>();
 
 			Scan(scan =>
 			{
