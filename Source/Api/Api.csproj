@@ -38,11 +38,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentSecurity.Core">
-      <HintPath>..\packages\FluentSecurity.Core.2.1.0-buildx9cb71\lib\net40\FluentSecurity.Core.dll</HintPath>
+    <Reference Include="FluentSecurity.Core, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentSecurity.Core.3.0.0-alpha0-buildx37d6f\lib\net40\FluentSecurity.Core.dll</HintPath>
     </Reference>
-    <Reference Include="FluentSecurity.WebApi">
-      <HintPath>..\packages\FluentSecurity.WebApi.2.1.0-buildx9cb71\lib\net40\FluentSecurity.WebApi.dll</HintPath>
+    <Reference Include="FluentSecurity.WebApi, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentSecurity.WebApi.3.0.0-alpha0-buildx37d6f\lib\net40\FluentSecurity.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
