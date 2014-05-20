@@ -155,14 +155,14 @@ button.danger:active {
 	color: #3c763d;
 }
 
-.alert {
+.meow.alert {
 	margin-top: 40px;
 	margin-left: 50px;
 	overflow: visible;
 	line-height: 40px;
 	padding-left: 20px;
 }
-img.meow {
+.meow.alert img {
 	float: left;
 	background-color: white;
 	border: solid 5px white;
