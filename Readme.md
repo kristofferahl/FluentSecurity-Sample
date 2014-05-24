@@ -1,7 +1,10 @@
 # ![FluentSecurity](https://github.com/kristofferahl/FluentSecurity/raw/master/Documents/Fluent-Security-Logo-100x100.png)
 
 ## Sample application for FluentSecurity
-Checkout the different branches to see how each step is implemented.
+View the different branches to see how each step is implemented.
+
+## Setup
+After checking out a branch, run build.cmd to restore missing nuget packages. This requires nuget.exe to be in your path.
 
 ## Website
 http://www.fluentsecurity.net/
